@@ -6,6 +6,12 @@ export default combineReducers({
   quotes
 });
 
+// const rootReducer = combineReducers({
+//   quotes: quotesReducer
+// });
+ 
+// export default rootReducer;
+
 function quotesReducer(state = [], action) {
   switch (action.type) {
     case "ADD_QUOTE":

@@ -24,7 +24,11 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault()
-    const quote = 
+    const quote = {
+      id: uuid(),
+      content: this.state.content,
+      author: this.state.author
+    }
     this.props.addQuote(quote)
     this.setState({
       content: "",
