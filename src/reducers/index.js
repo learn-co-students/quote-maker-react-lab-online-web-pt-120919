@@ -6,7 +6,7 @@ export default combineReducers({
   quotes
 });
 
-function quotes(state = [], action) {
+function quotesReducer(state = [], action) {
   switch (action.type) {
     case "ADD_QUOTE":
       return [...state, action.quote];

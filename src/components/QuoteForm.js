@@ -24,6 +24,8 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault()
+    const quote = 
+    this.props.addQuote(quote)
     this.setState({
       content: "",
       author: ""
@@ -76,5 +78,13 @@ class QuoteForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addQuote: (quote) => {
+      dispatch(addQuote(quote))
+    }
+  };
+}
+
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, mapDispatchToProps)(QuoteForm);
