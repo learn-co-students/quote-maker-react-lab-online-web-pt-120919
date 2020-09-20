@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import QuoteForm from './components/QuoteForm';
+import Quotes from './containers/Quotes';
 class App extends Component {
   render() {
     return (
@@ -7,12 +8,10 @@ class App extends Component {
         <div className="row title justify-content-center" style={{ paddingTop: '12px' }}>
           <h1>Quote Maker</h1>
         </div>
+        <QuoteForm />
         <hr />
-        {/*
-          TODO:
-
-          Render QuoteForm and Quotes Components
-         */}
+        
+        <Quotes />
       </div>
     );
   }
