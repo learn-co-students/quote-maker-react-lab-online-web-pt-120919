@@ -10,10 +10,25 @@ export default (state = [], action) => {
       return state.filter(quote => quote.id !== action.quoteId);
 
     case "UPVOTE_QUOTE":
-      return state;
+      idx = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[idx];
+
+      return [
+        ...state.slice(0, idx),
+        Object.assign({}, quote, { votes: (quote.votes += 1) }),
+        ...state.slice(idx + 1)
+      ];
 
     case "DOWNVOTE_QUOTE":
-      return state;
+      idx = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[idx];
+      if (quote.votes > 0) {
+        return [
+          ...state.slice(0, idx),
+          Object.assign({}, quote, { votes: (quote.votes -= 1) }),
+          ...state.slice(idx + 1)
+        ];
+      }
 
     default:
       return state;
